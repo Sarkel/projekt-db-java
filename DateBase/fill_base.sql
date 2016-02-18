@@ -1,3 +1,14 @@
+INSERT INTO Biblioteka.Wydawnictwo(Nazwa) VALUES('Test Wydawnictwo');
+INSERT INTO Biblioteka.Avatar(Url) VALUES('test.pl');
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('12test', 2015, 1, 1);
+
+INSERT INTO Biblioteka.Autor(Imie, Nazwisko) VALUES('testt1', 'testt2');
+INSERT INTO Biblioteka.Ksiazka_autor(Ksiazka, Autor, Rodzaj_powiazania) VALUES(1, 1, 1);
 INSERT INTO Biblioteka.Wydawnictwo(Nazwa) VALUES('test');
 INSERT INTO Biblioteka.Avatar(Url) VALUES('test');
 INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, ISBN, Avatar, Wydawnictwo) VALUES('test', 2015, 'test', 1, 1);

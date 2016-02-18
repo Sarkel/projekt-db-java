@@ -190,8 +190,8 @@ ALTER TABLE Biblioteka.Adres ADD CONSTRAINT Adres_fk0 FOREIGN KEY (Kod_pocztowy)
 
 
 
-ALTER TABLE Biblioteka.Naleznosc ADD CONSTRAINT Naleznosc_fk0 FOREIGN KEY (Ksiazka) REFERENCES Ksiazka(Ksiazka_ID);
-ALTER TABLE Biblioteka.Naleznosc ADD CONSTRAINT Naleznosc_fk1 FOREIGN KEY (Uzytkownik) REFERENCES Uzytkownik(Uzytkownik_ID);
+ALTER TABLE Biblioteka.Naleznosc ADD CONSTRAINT Naleznosc_fk0 FOREIGN KEY (Ksiazka) REFERENCES Biblioteka.Ksiazka(Ksiazka_ID);
+ALTER TABLE Biblioteka.Naleznosc ADD CONSTRAINT Naleznosc_fk1 FOREIGN KEY (Uzytkownik) REFERENCES Biblioteka.Uzytkownik(Uzytkownik_ID);
 
 ALTER TABLE Biblioteka.Wypozyczona_ksiazka ADD CONSTRAINT Wypozyczona_ksiazka_fk0 FOREIGN KEY (Uzytkownik) REFERENCES Biblioteka.Uzytkownik(Uzytkownik_ID);
 ALTER TABLE Biblioteka.Wypozyczona_ksiazka ADD CONSTRAINT Wypozyczona_ksiazka_fk1 FOREIGN KEY (Ksiazka) REFERENCES Biblioteka.Ksiazka(Ksiazka_ID);
