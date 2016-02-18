@@ -6,6 +6,11 @@ import org.library.wrappers.ErrorMessages;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * Created by Sebastian Kubalski on 18.02.2016.
+ * @author  Sebastian Kubalski
+ * @version 1.0
+ */
 public class LoginDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
@@ -31,7 +36,6 @@ public class LoginDialog extends JDialog {
             }
         });
 
-// call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -39,7 +43,6 @@ public class LoginDialog extends JDialog {
             }
         });
 
-// call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
@@ -63,7 +66,7 @@ public class LoginDialog extends JDialog {
         }
         System.out.println(isValid);
         if(isValid && User.login(loginValue.getText(), passwordValue.getPassword())){
-            TotalBookView a = new TotalBookView();
+            new TotalBookView();
             dispose();
         } else if(errorLabel.getText().isEmpty()) {
             errorLabel.setText(ErrorMessages.WRONG_CREDENTIALS);
@@ -71,14 +74,6 @@ public class LoginDialog extends JDialog {
     }
 
     private void onCancel() {
-// add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        LoginDialog dialog = new LoginDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 }

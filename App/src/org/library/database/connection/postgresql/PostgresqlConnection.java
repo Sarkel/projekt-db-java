@@ -20,8 +20,8 @@ public class PostgresqlConnection extends DataBase {
      */
     public PostgresqlConnection() throws SQLException {
         PostgresqlConnectionSettings settings = PostgresqlConnectionSettings.getInstance();
-        String path = "jdbc:postgresql://" + settings.hostName + "/" + settings.dataBaseName;
-        this.con = DriverManager.getConnection(path, settings.user, settings.password);
+        String path = "jdbc:postgresql://" + settings.getHostName() + "/" + settings.getDataBaseName();
+        this.con = DriverManager.getConnection(path, settings.getUser(), settings.getPassword());
     }
 
     /**

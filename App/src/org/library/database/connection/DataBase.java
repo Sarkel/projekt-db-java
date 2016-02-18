@@ -148,6 +148,8 @@ public abstract class DataBase {
                 ps.setDouble(counter, (Double) field.getValue());
             } else if (field.getValue() instanceof Date) {
                 ps.setDate(counter, (Date) field.getValue());
+            } else if (field.getValue() instanceof Timestamp) {
+                ps.setTimestamp(counter, (Timestamp) field.getValue());
             }
             counter++;
         }

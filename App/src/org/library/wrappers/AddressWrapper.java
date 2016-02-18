@@ -2,6 +2,8 @@ package org.library.wrappers;
 
 /**
  * Created by sebas on 17.02.2016.
+ * @author Sebastian Kubalski
+ * @version 1.0
  */
 public class AddressWrapper {
     public static class Address{

@@ -7,13 +7,13 @@ package org.library.database.settings;
  */
 public class PostgresqlConnectionSettings {
 
-    public String user;
+    private String user;
 
-    public String password;
+    private String password;
 
-    public String dataBaseName;
+    private String dataBaseName;
 
-    public String hostName;
+    private String hostName;
 
     private static PostgresqlConnectionSettings ourInstance = new PostgresqlConnectionSettings();
 
@@ -25,9 +25,41 @@ public class PostgresqlConnectionSettings {
     }
 
     private PostgresqlConnectionSettings() {
-        this.user = "library_admin";
-        this.password = "admin";
-        this.dataBaseName = "library";
+        this.user = "u3kubalski";
+        this.password = "3kubalski";
+        this.dataBaseName = "u3kubalski";
         this.hostName = "localhost";
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDataBaseName() {
+        return dataBaseName;
+    }
+
+    public void setDataBaseName(String dataBaseName) {
+        this.dataBaseName = dataBaseName;
+    }
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
     }
 }

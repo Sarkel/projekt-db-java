@@ -1,9 +1,0 @@
-\i domains.sql
-\i schema.sql
-\i functions.sql
-\i views.sql
-\i indexes.sql
-\i triggers.sql
-\i temp_tables.sql
-\i dictionaries.sql
-\i fill_base.sql

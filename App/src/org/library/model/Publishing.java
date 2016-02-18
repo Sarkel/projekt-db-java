@@ -9,9 +9,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by sebas on 17.02.2016.
+ * Created by Sebastian Kubalski on 17.02.2016.
+ * @author  Sebastian Kubalski
+ * @version 1.0
  */
 public class Publishing {
+    /**
+     * @param book id of selected book
+     * @return all publishing houses for selected book
+     * @throws SQLException
+     */
     public static ArrayList<PublishingWrapper.Publishing> getBookPublishing(@NotNull Integer book) throws SQLException {
         ArrayList<PublishingWrapper.Publishing> results = new ArrayList<>();
         String query = "SELECT * FROM Biblioteka.book_wyd WHERE ksiazka = ? ORDER BY nazwa;";

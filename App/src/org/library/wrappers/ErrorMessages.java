@@ -1,7 +1,9 @@
 package org.library.wrappers;
 
 /**
- * Created by sebas on 17.02.2016.
+ * Created by Sebastian Kubalski on 17.02.2016.
+ * @author Sebastian Kubalski
+ * @version 1.0
  */
 public class ErrorMessages {
     public static String WRONG_CREDENTIALS = "Wrong login or password.";

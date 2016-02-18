@@ -60,3 +60,7 @@ CREATE VIEW Biblioteka.login_user AS
 	SELECT u.Uzytkownik_ID AS id, u.Email AS email, u.Haslo AS haslo, u.Pwd_seed AS seed, ru.Nazwa AS typ, av.Url AS avatar 
 	FROM Biblioteka.Uzytkownik AS u, Biblioteka.Avatar AS av, Biblioteka.Rodzaj_uzytkownika AS ru 
 	WHERE u.Aktywny = true;
+
+CREATE VIEW Biblioteka.comment_detail AS 
+	SELECT kom.Komentarz_ID AS id, kom.Tekst AS content, kom.Data AS data, kom.Ilosc_gwiazdek AS star
+	FROM Biblioteka.Komentarz AS kom

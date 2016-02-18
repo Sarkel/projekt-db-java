@@ -9,9 +9,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by sebas on 17.02.2016.
+ * Created by Sebastian Kubalski on 17.02.2016.
+ * @author  Sebastian Kubalski
+ * @version 1.0
  */
 public class Debet {
+    /**
+     * @param user id of selected user
+     * @return all penalty debit for selected user
+     * @throws SQLException
+     */
     public static ArrayList<DebetWrapper.Debet> getUserDebets(@NotNull Integer user) throws SQLException {
         ArrayList<DebetWrapper.Debet> results = new ArrayList<>();
         String query = "SELECT * FROM Biblioteka.debet_by_user WHERE user = ? ORDER BY wartosc DESC;";

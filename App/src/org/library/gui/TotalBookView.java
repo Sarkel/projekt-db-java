@@ -14,7 +14,9 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 
 /**
- * Created by sebas on 18.02.2016.
+ * Created by Sebastian Kubalski on 18.02.2016.
+ * @author  Sebastian Kubalski
+ * @version 1.0
  */
 public class TotalBookView extends JFrame {
     private JPanel contentPane;
@@ -62,7 +64,7 @@ public class TotalBookView extends JFrame {
     }
 
     private void select(ListSelectionEvent e){
-        BookDetailView view = new BookDetailView(books.get(e.getFirstIndex()).id);
+        new BookDetailView(books.get(e.getFirstIndex()).id);
         dispose();
     }
 }
