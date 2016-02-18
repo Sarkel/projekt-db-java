@@ -58,12 +58,12 @@ CREATE FUNCTION Biblioteka.validate_borrowed_book() RETURNS TRIGGER AS '
 	BEGIN
 		IF (TG_OP = ''INSERT'') THEN
 			bookId := new.Ksiazka;
-			UPDATE Biblioteka.Ksiazka AS k SET k.Wypozyczona = TRUE WHERE k.Ksiazka_ID = bookId;
+			UPDATE Biblioteka.Ksiazka SET Wypozyczona = TRUE WHERE Ksiazka_ID = bookId;
 			RAISE NOTICE ''Status changed.'';
 			RETURN OLD;  
 		ELSEIF (TG_OP = ''DELETE'') THEN
 			bookId := old.Ksiazka;
-			UPDATE Biblioteka.Ksiazka AS k SET k.Wypozyczona = TRUE WHERE k.Ksiazka_ID = bookId;
+			UPDATE Biblioteka.Ksiazka SET Wypozyczona = TRUE WHERE Ksiazka_ID = bookId;
 			RAISE NOTICE ''Status changed.'';
 			RETURN OLD;  
 		END IF;
@@ -99,17 +99,6 @@ CREATE FUNCTION Biblioteka.vlidate_user() RETURNS TRIGGER AS '
 				RETURN NEW;
 			END IF;
 		ELSEIF (TG_OP = ''INSERT'') THEN
-
-			SELECT at.Kod_pocztowy INTO postCode FROM Adres_temp AS at;
-			SELECT at.Ulica INTO street FROM Adres_temp AS at;
-			SELECT at.Numer_domu INTO homeNo FROM Adres_temp AS at;
-			SELECT at.Numer_mieszkania INTO flatNo FROM Adres_temp AS at;
-
-			INSERT INTO Biblioteka.Adres (Kod_pocztowy, Ulica, Numer_domu, Numer_mieszkania) VALUES (postCode, street, homeNo, flatNo);
-			
-			SELECT a.Adres_ID INTO adressID FROM Biblioteka.Adres AS a 
-				WHERE a.Kod_pocztowy = postCode AND a.Ulica = street AND a.Numer_domu = homeNo AND a.Numer_mieszkania = flatNo;
-			new.Adres := adressID;
 			RETURN NEW;
 		END IF; 
 	END;

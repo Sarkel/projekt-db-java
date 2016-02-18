@@ -16,6 +16,7 @@ INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('
 INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
 INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
 INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('test', 2015, 1, 1);
+INSERT INTO Biblioteka.Ksiazka(Tytul, Rok_wydania, Avatar, Wydawnictwo) VALUES('12test', 2015, 1, 1);
 
 INSERT INTO Biblioteka.Autor(Imie, Nazwisko) VALUES('dupa1', 'dupa2');
 INSERT INTO Biblioteka.Ksiazka_autor(Ksiazka, Autor, Rodzaj_powiazania) VALUES(1, 1, 1);

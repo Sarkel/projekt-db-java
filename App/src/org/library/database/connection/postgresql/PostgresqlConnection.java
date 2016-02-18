@@ -6,7 +6,6 @@ import org.library.database.settings.PostgresqlConnectionSettings;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -23,30 +22,6 @@ public class PostgresqlConnection extends DataBase {
         PostgresqlConnectionSettings settings = PostgresqlConnectionSettings.getInstance();
         String path = "jdbc:postgresql://" + settings.hostName + "/" + settings.dataBaseName;
         this.con = DriverManager.getConnection(path, settings.user, settings.password);
-    }
-
-    /**
-     * @param functionName name of data base procedure to run
-     * @param id data base procedure argument
-     * @return result of data base select statement
-     * @throws SQLException
-     */
-    public ResultSet select(@NotNull String functionName, @NotNull Integer id) throws SQLException {
-        PreparedStatement ps = this.createQuery(functionName);
-        ps.setInt(1, id);
-        return ps.executeQuery();
-    }
-
-    /**
-     * @param functionName name of data base procedure to run
-     * @param text data base procedure argument
-     * @return result of data base select statement
-     * @throws SQLException
-     */
-    public ResultSet select(@NotNull String functionName, @NotNull String text) throws SQLException {
-        PreparedStatement ps = this.createQuery(functionName);
-        ps.setString(1, text);
-        return ps.executeQuery();
     }
 
     /**

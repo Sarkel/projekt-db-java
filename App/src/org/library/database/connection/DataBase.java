@@ -4,10 +4,7 @@ import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
 import org.library.collections.Pair;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -34,8 +31,9 @@ public abstract class DataBase {
     public void insert(@NotNull String tableName, @NotNull ArrayList<Pair> values) throws SQLException {
         String fields = "";
         for (Pair field : values) {
-            fields += field.getKey();
+            fields += field.getKey() + ",";
         }
+        fields = fields.substring(0, fields.length() - 1);
         String query = "INSERT INTO " + tableName + "(" + fields + ")"
                 + " VALUES(" + numberOfValues(values.size()) + ");";
         PreparedStatement ps = this.setQueryValues(query, values);
@@ -96,6 +94,30 @@ public abstract class DataBase {
     }
 
     /**
+     * @param query entire data base query with int param in where statement
+     * @param id id of selected records in where statement
+     * @return result of data base select statement
+     * @throws SQLException
+     */
+    public ResultSet select(@NotNull String query, @NotNull Integer id) throws SQLException{
+        PreparedStatement ps = this.con.prepareStatement(query);
+        ps.setInt(1, id);
+        return ps.executeQuery();
+    }
+
+    /**
+     * @param query entire data base query with string param in where statement
+     * @param text text in search
+     * @return result of data base select statement
+     * @throws SQLException
+     */
+    public ResultSet select(@NotNull String query, @NotNull String text) throws SQLException{
+        PreparedStatement ps = this.con.prepareStatement(query);
+        ps.setString(1, text);
+        return ps.executeQuery();
+    }
+
+    /**
      * @param num number of parameter in DML statement
      * @return symbols for field values
      */
@@ -124,6 +146,8 @@ public abstract class DataBase {
                 ps.setString(counter, (String) field.getValue());
             } else if (field.getValue() instanceof Double) {
                 ps.setDouble(counter, (Double) field.getValue());
+            } else if (field.getValue() instanceof Date) {
+                ps.setDate(counter, (Date) field.getValue());
             }
             counter++;
         }
